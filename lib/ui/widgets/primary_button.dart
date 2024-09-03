@@ -2,6 +2,8 @@ import 'package:flutter/material.dart';
 
 import '../ui.dart';
 
+//annotate the class with widgetbook appcase
+
 class PrimaryButton extends StatelessWidget {
   const PrimaryButton({
     super.key,
@@ -28,7 +30,7 @@ class PrimaryButton extends StatelessWidget {
         decoration: BoxDecoration(
           color: AppTheme.of(context).background.brand,
           borderRadius: BorderRadius.circular(
-            AppTheme.of(context).radius.full,
+            AppTheme.of(context).radius.none,
           ),
         ),
         child: Row(
@@ -43,11 +45,14 @@ class PrimaryButton extends StatelessWidget {
                   ),
                 ],
               ),
-            Text(
-              content,
-              style: AppTheme.of(context).typography.label.copyWith(
-                    color: AppTheme.of(context).text.inverse,
-                  ),
+            Expanded(
+              child: Text(
+                content,
+                style: AppTheme.of(context).typography.label.copyWith(
+                      color: AppTheme.of(context).text.inverse,
+                      overflow: TextOverflow.ellipsis,
+                    ),
+              ),
             ),
             if (trailing != null)
               Row(
